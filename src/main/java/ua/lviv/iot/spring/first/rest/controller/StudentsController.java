@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import business.StudentService;
+import ua.lviv.iot.spring.first.business.StudentService;
 import ua.lviv.iot.spring.first.rest.model.Student;
 
 @RequestMapping("/students")
