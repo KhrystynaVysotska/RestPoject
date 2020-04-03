@@ -30,13 +30,13 @@ public class StudentsController {
 	private Map<Integer, Student> students = new HashMap<Integer, Student>();
 
 	private AtomicInteger idCounter = new AtomicInteger();
-	
+
 	@Autowired
-	private StudentService studentService; 
+	private StudentService studentService;
 
 	@GetMapping
 	public List<Student> getStugents() {
-		return new LinkedList<Student>(students.values());
+		return studentService.findAll();
 	}
 
 	@GetMapping(path = "/{id}")
@@ -44,13 +44,10 @@ public class StudentsController {
 		return students.get(studentId);
 	}
 
-	@PostMapping(produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+	@PostMapping(produces = { MediaType.APPLICATION_JSON_VALUE })
 	public Student createStudent(@RequestBody Student student) {
-		System.out.println(studentService.createStudent(student));
-		System.out.println(student);
-		student.setId(idCounter.incrementAndGet());
-		students.put(student.getId(), student);
-		return student;
+		return studentService.createStudent(student);
+
 	}
 
 	@DeleteMapping(path = "/{id}")
@@ -60,12 +57,13 @@ public class StudentsController {
 		return ResponseEntity.status(status).build();
 
 	}
-	
+
 	@PutMapping(path = "/{id}")
-	public ResponseEntity<Student> updateStudent(final @PathVariable("id") Integer studentId, @RequestBody Student student) {
+	public ResponseEntity<Student> updateStudent(final @PathVariable("id") Integer studentId,
+			@RequestBody Student student) {
 		student.setId(studentId);
 		HttpStatus status = students.put(studentId, student) != null ? HttpStatus.OK : HttpStatus.NOT_FOUND;
 		return ResponseEntity.status(status).build();
-		
+
 	}
 }

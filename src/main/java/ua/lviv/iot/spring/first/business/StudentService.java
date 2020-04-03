@@ -1,5 +1,7 @@
 package ua.lviv.iot.spring.first.business;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,13 +12,16 @@ import ua.lviv.iot.spring.first.rest.model.Student;
 public class StudentService {
 	@Autowired
 	private StudentRepository studentReposetory;
-	
+
 	public Student createStudent(Student student) {
-		
+
 		return studentReposetory.save(student);
-	
+
+	}
+
+	public List<Student> findAll() {
+
+		return studentReposetory.findAll();
 	}
 
 }
-
-
