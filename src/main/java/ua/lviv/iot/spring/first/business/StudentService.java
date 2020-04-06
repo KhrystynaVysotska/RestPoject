@@ -24,4 +24,9 @@ public class StudentService {
 		return studentReposetory.findAll();
 	}
 
+	public List<Student> getAllByName(String name) {
+
+		return studentReposetory.findAllByName(name);
+	}
+
 }

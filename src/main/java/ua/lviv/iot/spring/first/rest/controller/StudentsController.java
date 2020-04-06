@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import ua.lviv.iot.spring.first.business.StudentService;
@@ -33,10 +36,13 @@ public class StudentsController {
 
 	@Autowired
 	private StudentService studentService;
-
+	
 	@GetMapping
-	public List<Student> getStugents() {
-		return studentService.findAll();
+	public List<Student> getStudents(final @RequestParam(value = "name", required = false) String name) {
+		if (name == null) {
+			return studentService.findAll();
+		}
+		return studentService.getAllByName(name);
 	}
 
 	@GetMapping(path = "/{id}")

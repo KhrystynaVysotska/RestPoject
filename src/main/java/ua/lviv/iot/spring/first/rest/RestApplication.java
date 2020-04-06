@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan({"ua.liv.iot.spring.first.dataaccess", "ua.liv.iot.spring.first.business", "ua.liv.iot.spring.first.rest.controller"})
+@ComponentScan({"ua.liv.iot.spring.first.business", "ua.liv.iot.spring.first.dataaccess", "ua.liv.iot.spring.first.rest.controller"})
 @EnableJpaRepositories("ua.liv.iot.spring.first.dataaccess")
 public class RestApplication {
 
