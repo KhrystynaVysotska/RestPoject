@@ -1,1 +1,2 @@
 # RestPoject
+Provided rest service and crud operations, the majority of them was omitted. Recommendation is to use an abstract service class to avoid copypasting, but I left service classes as they were originally in order not to break totally source code. Everything else is okey, connections manytomany and onetoone are setted properly and connection to database also works good. Code is adhered to conventions. 
