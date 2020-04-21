@@ -27,10 +27,6 @@ import ua.lviv.iot.spring.first.rest.model.Student;
 @RestController
 public class StudentsController {
 
-	private Map<Integer, Student> students = new HashMap<Integer, Student>();
-
-	private AtomicInteger idCounter = new AtomicInteger();
-
 	@Autowired
 	private StudentService studentService;
 	
