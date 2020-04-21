@@ -40,28 +40,13 @@ public class Student {
 	@ManyToMany(mappedBy = "students")
 	private Set<Subject> subjects;
 
-	public Set<Subject> getSubjects() {
-		return subjects;
-	}
-
-	public void setSubjects(Set<Subject> subjects) {
-		this.subjects = subjects;
-	}
-
-	public Group getGroup() {
-		return group;
-	}
-
-	public void setGroup(Group group) {
-		this.group = group;
-	}
-
 	public Student() {
 
 	}
 
 	public Student(String name, String lastName) {
-		this.setName(name);
+	    super();
+		this.name = name;
 		this.lastName = lastName;
 	}
 
@@ -88,5 +73,20 @@ public class Student {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	
+	public Set<Subject> getSubjects() {
+        return subjects;
+    }
 
+    public void setSubjects(Set<Subject> subjects) {
+        this.subjects = subjects;
+    }
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
 }

@@ -5,9 +5,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import javax.websocket.server.PathParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -51,7 +48,7 @@ public class StudentsController {
 	}
 
 	@PostMapping(produces = { MediaType.APPLICATION_JSON_VALUE })
-	public Student createStudent(@RequestBody Student student) {
+	public Student createStudent(final @RequestBody Student student) {
 		return studentService.createStudent(student);
 
 	}

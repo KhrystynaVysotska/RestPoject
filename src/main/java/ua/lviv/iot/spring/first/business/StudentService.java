@@ -10,6 +10,7 @@ import ua.lviv.iot.spring.first.rest.model.Student;
 
 @Service
 public class StudentService {
+    
 	@Autowired
 	private StudentRepository studentReposetory;
 
